@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>IUnlockNotifyHandler - multiple declarations</title>
+		<link rel="stylesheet" type="text/css" href="../../styles/ddox.css"/>
+		<link rel="stylesheet" href="../../prettify/prettify.css" type="text/css"/>
+		<script type="text/javascript" src="../../scripts/jquery.js">/**/</script><script type="text/javascript" src="../../scripts/ddox.js">/**/</script>
+	</head>
+	<body onload="setupDdox();">
+		<nav id="main-nav">
+			<noscript>
+				<p style="color: red">The search functionality needs JavaScript enabled</p>
+			</noscript>
+			<div id="symbolSearchPane" style="display: none">
+				<form action="#" method="GET">
+					<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(40);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+				</form>
+				<ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="../../symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+$('#symbolSearchPane').show();</script>
+			</div>
+			<ul class="tree-view">
+				<li class="tree-view ">
+					<div class="package ">
+						<a href="../../d2sqlite3.html">d2sqlite3</a>
+					</div>
+			<ul class="tree-view">
+				<li>
+					<div class="module selected">
+						<a href="../../d2sqlite3/database.html">database</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../d2sqlite3/library.html">library</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../d2sqlite3/results.html">results</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../d2sqlite3/sqlite3.html">sqlite3</a>
+					</div>
+				</li>
+				<li>
+					<div class="module ">
+						<a href="../../d2sqlite3/statement.html">statement</a>
+					</div>
+				</li>
+			</ul>
+				</li>
+			</ul>
+		</nav>
+		<div id="main-contents">
+			<h1>IUnlockNotifyHandler - multiple declarations</h1>
+			<nav class="page-nav">
+				<ul>
+					<li>
+						<a href="#0">
+							Interface <code>IUnlockNotifyHandler</code>
+						</a>
+					</li>
+					<li>
+						<a href="#1">
+							Interface <code>IUnlockNotifyHandler</code>
+						</a>
+					</li>
+				</ul>
+			</nav><h2 id="0">Interface IUnlockNotifyHandler</h2><p>UnlockNotifyHandler interface to be used for custom implementations of UnlockNotify pattern with SQLite.
+</p>
+			<div class="prototype">
+				<code class="lang-d">
+					<div class="single-prototype">
+			<span class="kwd">interface</span> <span class="typ">IUnlockNotifyHandler</span>
+			<span class="pun">;</span>
+					</div>
+				</code>
+			</div>
+			<section></section>
+
+			<section><h3>Properties</h3>
+				<table>
+					<col class="caption"/>
+					<tr>
+						<th>Name</th><th>Type</th><th>Description</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.result.html" class="public property"><code>result</code></a><span class="tableEntryAnnotation">[get]</span>
+						</td>
+						<td class="typecol"><code class="prettyprint lang-d"><span class="typ">int</span></code></td><td>Result after wait is finished
+</td>
+					</tr>
+				</table>
+			</section>
+			<section><h3>Methods</h3>
+				<table>
+					<col class="caption"/>
+					<tr>
+						<th>Name</th><th>Description</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.emit.html" class="public">
+								<code>emit</code>
+							</a>
+						</td>
+						<td>Unlocks the handler.
+            This is called from registered callback from SQLite.
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.emit.html" class="public">
+								<code>emit</code>
+							</a>
+						</td>
+						<td>Unlocks the handler.
+            This is called from registered callback from SQLite.
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.reset.html" class="public">
+								<code>reset</code>
+							</a>
+						</td>
+						<td>Resets the handler for the next use
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.wait.html" class="public">
+								<code>wait</code>
+							</a>
+						</td>
+						<td>Blocks until emit is called
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.wait.html" class="public">
+								<code>wait</code>
+							</a>
+						</td>
+						<td>Blocks until emit is called
+</td>
+					</tr>
+				</table>
+			</section>
+			<section><h3>Note</h3>
+<p>For the C API sqlite3_unlock_notify to be used, this library must be compiled with
+    <code class="lang-d"><span class="pun">-</span><span class="kwd">version</span><span class="pun">=</span><span class="typ">SqliteEnableUnlockNotify</span></code>.
+    Otherwise only emulated solution is provided, that is based on retries for the defined amount of time.
+</p>
+
+<p>    Implementation must be able to handle situation when emit is called sooner than the wait itself.
+</p>
+</section>
+<section><h3>See Also</h3>
+<p><a href="http://sqlite.org/c3ref/unlock_notify.html">http://sqlite.org/c3ref/unlock_notify.html</a>.
+</p>
+</section>
+<section><h3>See Also</h3>
+<p><a href="http://www.sqlite.org/unlock_notify.html">http://www.sqlite.org/unlock_notify.html</a>.
+</p>
+</section>
+<h2 id="1">Interface IUnlockNotifyHandler</h2><p>UnlockNotifyHandler interface to be used for custom implementations of UnlockNotify pattern with SQLite.
+</p>
+			<div class="prototype">
+				<code class="lang-d">
+					<div class="single-prototype">
+			<span class="kwd">interface</span> <span class="typ">IUnlockNotifyHandler</span>
+			<span class="pun">;</span>
+					</div>
+				</code>
+			</div>
+			<section></section>
+
+			<section><h3>Properties</h3>
+				<table>
+					<col class="caption"/>
+					<tr>
+						<th>Name</th><th>Type</th><th>Description</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.result.html" class="public property"><code>result</code></a><span class="tableEntryAnnotation">[get]</span>
+						</td>
+						<td class="typecol"><code class="prettyprint lang-d"><span class="typ">int</span></code></td><td>Result after wait is finished
+</td>
+					</tr>
+				</table>
+			</section>
+			<section><h3>Methods</h3>
+				<table>
+					<col class="caption"/>
+					<tr>
+						<th>Name</th><th>Description</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.emit.html" class="public">
+								<code>emit</code>
+							</a>
+						</td>
+						<td>Unlocks the handler.
+            This is called from registered callback from SQLite.
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.emit.html" class="public">
+								<code>emit</code>
+							</a>
+						</td>
+						<td>Unlocks the handler.
+            This is called from registered callback from SQLite.
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.reset.html" class="public">
+								<code>reset</code>
+							</a>
+						</td>
+						<td>Resets the handler for the next use
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.wait.html" class="public">
+								<code>wait</code>
+							</a>
+						</td>
+						<td>Blocks until emit is called
+</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="../../d2sqlite3/database/IUnlockNotifyHandler.wait.html" class="public">
+								<code>wait</code>
+							</a>
+						</td>
+						<td>Blocks until emit is called
+</td>
+					</tr>
+				</table>
+			</section>
+			<section><h3>Note</h3>
+<p>For the C API sqlite3_unlock_notify to be used, this library must be compiled with
+    <code class="lang-d"><span class="pun">-</span><span class="kwd">version</span><span class="pun">=</span><span class="typ">SqliteEnableUnlockNotify</span></code>.
+    Otherwise only emulated solution is provided, that is based on retries for the defined amount of time.
+</p>
+
+<p>    Implementation must be able to handle situation when emit is called sooner than the wait itself.
+</p>
+</section>
+<section><h3>See Also</h3>
+<p><a href="http://sqlite.org/c3ref/unlock_notify.html">http://sqlite.org/c3ref/unlock_notify.html</a>.
+</p>
+</section>
+<section><h3>See Also</h3>
+<p><a href="http://www.sqlite.org/unlock_notify.html">http://www.sqlite.org/unlock_notify.html</a>.
+</p>
+</section>
+
+			<footer>
+				<table class="license-info">
+					<tr>
+						<th>Authors</th>
+						<td>
+							<p>Nicolas Sicard (biozic) and other contributors at <a href="https://github.com/biozic/d2sqlite3">https://github.com/biozic/d2sqlite3</a>
+</p>
+
+						</td>
+					</tr>
+					<tr>
+						<th>Copyright</th>
+						<td>
+							<p>Copyright 2011-18 Nicolas Sicard.
+</p>
+
+						</td>
+					</tr>
+					<tr>
+						<th>License</th>
+						<td>
+							<p><a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+</p>
+
+						</td>
+					</tr>
+				</table>
+				<p class="faint">Generated using the DDOX documentation generator</p>
+			</footer>
+		</div>
+	</body>
+</html>
